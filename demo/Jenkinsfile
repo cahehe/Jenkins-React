@@ -1,17 +1,19 @@
 pipeline{    
-    agent {
-        docker {
-            image 'node:latest'
-            // args '-p 3000:3000'
-        }
-    }
+    agent any
 
-    stages{
-        
+    stages{        
+        stage("pull"){
+            steps{
+                sh """
+                    docker pull carlos6125/demo
+                    """
+            }
+        }
+
         stage("run"){
             steps{
                 sh """
-                    echo `Hello World`
+                    docker run --rm -p 3000:3000 carlos6125/demo
                     """
             }
         }
