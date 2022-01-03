@@ -1,17 +1,21 @@
-pipeline{
-    agent{
-        docker{
-            image 'carlos6125/demo'
-            args '-p 3000:3000'
+node{
+    agent{ label "linux"}
+    
+    stages{
+        stage("pull"){
+            steps{
+                sh"""
+                    docker pull carlos6125/demo
+                """
+            }   
+        }
+
+        stage("run"){
+            steps{
+                sh """
+                    docker run --rm carlos6125/demo
+                    """
+            }
         }
     }
-
-    // stages {
-    //     stage('Build'){
-    //         steps{
-    //             sh 'npm install'
-    //         }
-    //     }
-    // }
-
 }
