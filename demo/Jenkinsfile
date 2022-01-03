@@ -1,14 +1,10 @@
 pipeline{    
-    agent{label "node"}
-    stages{
-        stage("pull"){
-            steps{
-                sh"""
-                    docker pull carlos6125/demo
-                """
-            }   
+    agent {
+        docker {
+            image 'carlos6125/demo'
+            args '-p 3000:3000'
         }
-
+    
         stage("run"){
             steps{
                 sh """
