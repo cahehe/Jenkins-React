@@ -17,5 +17,13 @@ pipeline{
                     """
             }
         }
+
+        stage("end"){
+            steps{
+                sh """
+                    docker kill carlos6125/demo
+                    """
+            }
+        }
     }
 }
