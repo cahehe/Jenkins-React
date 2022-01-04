@@ -9,6 +9,7 @@ pipeline{
     stages{        
         stage("install"){
             steps{
+                sh "cd demo"
                 sh """
                     npm install
                     """
@@ -16,7 +17,7 @@ pipeline{
         }
 
         stage("start"){
-            steps{
+            steps{                
                 sh """
                     npm start
                 """
