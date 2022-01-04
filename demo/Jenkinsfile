@@ -1,7 +1,7 @@
 pipeline{    
     agent{
         docker{
-            image "ubuntu:latest"
+            image "node:17.3.0"
         }
     }
 
@@ -9,7 +9,7 @@ pipeline{
         stage("pull"){
             steps{
                 sh """
-                    ls
+                    node --version
                     """
             }
         }
