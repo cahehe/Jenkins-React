@@ -2,15 +2,24 @@ pipeline{
     agent{
         docker{
             image "node:17.3.0"
+            args "-p 3000 3000"
         }
     }
 
     stages{        
-        stage("pull"){
+        stage("install"){
             steps{
                 sh """
-                    node --version
+                    npm install
                     """
+            }
+        }
+
+        stagee{
+            steps{
+                sh """
+                    npm start
+                """
             }
         }
 
