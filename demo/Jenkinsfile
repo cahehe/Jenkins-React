@@ -11,6 +11,7 @@ pipeline{
             steps{                
                 sh """
                     cd demo
+                    pwd
                     npm install
                     """
             }
@@ -19,6 +20,7 @@ pipeline{
         stage("start"){
             steps{                
                 sh """
+                    cd demo
                     npm start
                 """
             }
