@@ -8,13 +8,9 @@ pipeline{
 
     stages{        
         stage("install"){
-            steps{
-                sh "pwd"
-                sh "ls"
-                sh "cd demo"
-                sh "ls"
-                sh "pwd"
+            steps{                
                 sh """
+                    cd demo
                     npm install
                     """
             }
