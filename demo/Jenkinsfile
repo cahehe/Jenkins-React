@@ -1,29 +1,18 @@
 pipeline{    
-    agent any
+    agent{
+        {
+            image "carlos6125/demo"
+        }
+    }
 
     stages{        
         stage("pull"){
             steps{
                 sh """
-                    docker pull carlos6125/demo
+                    ls
                     """
             }
         }
 
-        stage("run"){
-            steps{
-                sh """
-                    docker run --rm -d --name demo -p 3000:3000 carlos6125/demo
-                    """
-            }
-        }
-
-        stage("end"){
-            steps{
-                sh """
-                    docker kill demo
-                    """
-            }
-        }
     }
 }
