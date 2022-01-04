@@ -15,7 +15,7 @@ pipeline{
             }
         }
 
-        stagee{
+        stage{
             steps{
                 sh """
                     npm start
