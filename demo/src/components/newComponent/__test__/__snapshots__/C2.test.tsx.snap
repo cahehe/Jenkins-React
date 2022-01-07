@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matchse snapshot 1`] = `
+<div
+  data-testid="1"
+>
+  Hello there
+</div>
+`;
